@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>👉 call、apply、bind 的实现 | CHIEMINCHAN&#39;S BLOG</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/images/donut.png">
+    <meta name="description" content="Hi, glad you came.">
+    
+    <link rel="preload" href="/assets/css/0.styles.8f3dca9f.css" as="style"><link rel="preload" href="/assets/js/app.acbad0d7.js" as="script"><link rel="preload" href="/assets/js/2.fefa3fa1.js" as="script"><link rel="preload" href="/assets/js/1.67a15f5a.js" as="script"><link rel="preload" href="/assets/js/44.631fa43e.js" as="script"><link rel="prefetch" href="/assets/js/10.5229b01a.js"><link rel="prefetch" href="/assets/js/11.9dccb5a1.js"><link rel="prefetch" href="/assets/js/12.1aa023e7.js"><link rel="prefetch" href="/assets/js/13.da540175.js"><link rel="prefetch" href="/assets/js/14.981e669d.js"><link rel="prefetch" href="/assets/js/15.f28dd0b3.js"><link rel="prefetch" href="/assets/js/16.47e1d84d.js"><link rel="prefetch" href="/assets/js/17.7ff34030.js"><link rel="prefetch" href="/assets/js/18.6dcbdd16.js"><link rel="prefetch" href="/assets/js/19.e568fd00.js"><link rel="prefetch" href="/assets/js/20.182f1f9b.js"><link rel="prefetch" href="/assets/js/21.b834a74a.js"><link rel="prefetch" href="/assets/js/22.a3523cd2.js"><link rel="prefetch" href="/assets/js/23.61d15c5b.js"><link rel="prefetch" href="/assets/js/24.1d348186.js"><link rel="prefetch" href="/assets/js/25.9fe12dcf.js"><link rel="prefetch" href="/assets/js/26.e90c8d2c.js"><link rel="prefetch" href="/assets/js/27.4a3dcbb4.js"><link rel="prefetch" href="/assets/js/28.02977665.js"><link rel="prefetch" href="/assets/js/29.cdb9f0c9.js"><link rel="prefetch" href="/assets/js/3.fc739620.js"><link rel="prefetch" href="/assets/js/30.185415f9.js"><link rel="prefetch" href="/assets/js/31.ec02d3da.js"><link rel="prefetch" href="/assets/js/32.bd05dede.js"><link rel="prefetch" href="/assets/js/33.4f7ad3d8.js"><link rel="prefetch" href="/assets/js/34.4464026b.js"><link rel="prefetch" href="/assets/js/35.595841d0.js"><link rel="prefetch" href="/assets/js/36.402b37c9.js"><link rel="prefetch" href="/assets/js/37.9bf58c3a.js"><link rel="prefetch" href="/assets/js/38.46566c2b.js"><link rel="prefetch" href="/assets/js/39.b8885e71.js"><link rel="prefetch" href="/assets/js/4.0471e9ae.js"><link rel="prefetch" href="/assets/js/40.1c6fe0d3.js"><link rel="prefetch" href="/assets/js/41.0116a1ec.js"><link rel="prefetch" href="/assets/js/42.61dc1f92.js"><link rel="prefetch" href="/assets/js/43.1d0d8ffd.js"><link rel="prefetch" href="/assets/js/45.619dc552.js"><link rel="prefetch" href="/assets/js/46.1a502943.js"><link rel="prefetch" href="/assets/js/47.90cce12d.js"><link rel="prefetch" href="/assets/js/48.ad0ce6a4.js"><link rel="prefetch" href="/assets/js/49.ade35f37.js"><link rel="prefetch" href="/assets/js/5.5356be46.js"><link rel="prefetch" href="/assets/js/50.de00c31b.js"><link rel="prefetch" href="/assets/js/51.8d115701.js"><link rel="prefetch" href="/assets/js/52.50f1abf2.js"><link rel="prefetch" href="/assets/js/53.474bacbc.js"><link rel="prefetch" href="/assets/js/54.71bfe1b2.js"><link rel="prefetch" href="/assets/js/55.5a7aac80.js"><link rel="prefetch" href="/assets/js/56.1bb058d3.js"><link rel="prefetch" href="/assets/js/57.ce60730e.js"><link rel="prefetch" href="/assets/js/58.50eb3dcb.js"><link rel="prefetch" href="/assets/js/59.cbbee0a1.js"><link rel="prefetch" href="/assets/js/6.5b3d5499.js"><link rel="prefetch" href="/assets/js/60.6d033419.js"><link rel="prefetch" href="/assets/js/61.38b92b35.js"><link rel="prefetch" href="/assets/js/62.cfb09d59.js"><link rel="prefetch" href="/assets/js/63.b3afd3f8.js"><link rel="prefetch" href="/assets/js/64.d7c42a6f.js"><link rel="prefetch" href="/assets/js/65.d75a10f7.js"><link rel="prefetch" href="/assets/js/66.43e62a50.js"><link rel="prefetch" href="/assets/js/67.2b5d235c.js"><link rel="prefetch" href="/assets/js/68.0a9b875e.js"><link rel="prefetch" href="/assets/js/69.8890b554.js"><link rel="prefetch" href="/assets/js/7.c94df317.js"><link rel="prefetch" href="/assets/js/70.37811412.js"><link rel="prefetch" href="/assets/js/71.31650a8a.js"><link rel="prefetch" href="/assets/js/72.5258a010.js"><link rel="prefetch" href="/assets/js/73.b82c5b55.js"><link rel="prefetch" href="/assets/js/74.98193333.js"><link rel="prefetch" href="/assets/js/75.03ecfdd5.js"><link rel="prefetch" href="/assets/js/76.cf3fe483.js"><link rel="prefetch" href="/assets/js/77.20e1f993.js"><link rel="prefetch" href="/assets/js/78.81fd1ead.js"><link rel="prefetch" href="/assets/js/79.01e24fba.js"><link rel="prefetch" href="/assets/js/80.b15cc1f3.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.934ed2fb.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8f3dca9f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">CHIEMINCHAN'S BLOG</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/articles/" class="nav-link router-link-active">
+  文章
+</a></div><div class="nav-item"><a href="/fragments/" class="nav-link">
+  知识碎片
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/reading/" class="nav-link">
+  读/观后感
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="GitHub" class="dropdown-title"><span class="title">GitHub</span> <span class="arrow down"></span></button> <button type="button" aria-label="GitHub" class="mobile-dropdown-title"><span class="title">GitHub</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/chieminchan" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/articles/" class="nav-link router-link-active">
+  文章
+</a></div><div class="nav-item"><a href="/fragments/" class="nav-link">
+  知识碎片
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/reading/" class="nav-link">
+  读/观后感
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="GitHub" class="dropdown-title"><span class="title">GitHub</span> <span class="arrow down"></span></button> <button type="button" aria-label="GitHub" class="mobile-dropdown-title"><span class="title">GitHub</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/chieminchan" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Browser</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>DesignPatterns</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JavaScript</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/articles/JavaScript/JavaScript执行上下文.html" class="sidebar-link">👉 JavaScript 执行上下文</a></li><li><a href="/articles/JavaScript/PromiseA+实现原理.html" class="sidebar-link">👉 Promise/A+ 实现原理</a></li><li><a href="/articles/JavaScript/V8工作原理.html" class="sidebar-link">👉 V8 工作原理</a></li><li><a href="/articles/JavaScript/call、apply、bind的实现.html" class="active sidebar-link">👉 call、apply、bind 的实现</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/articles/JavaScript/call、apply、bind的实现.html#三者的联系与区别" class="sidebar-link">三者的联系与区别</a></li><li class="sidebar-sub-header"><a href="/articles/JavaScript/call、apply、bind的实现.html#call-apply-的模拟实现" class="sidebar-link">call/apply 的模拟实现</a></li><li class="sidebar-sub-header"><a href="/articles/JavaScript/call、apply、bind的实现.html#bind-的模拟实现" class="sidebar-link">bind 的模拟实现</a></li><li class="sidebar-sub-header"><a href="/articles/JavaScript/call、apply、bind的实现.html#三者的应用场景" class="sidebar-link">三者的应用场景</a></li></ul></li><li><a href="/articles/JavaScript/事件流和事件处理程序.html" class="sidebar-link">👉 事件流和事件处理程序</a></li><li><a href="/articles/JavaScript/关于Promise的一些事.html" class="sidebar-link">👉 关于 Promise 的一些事</a></li><li><a href="/articles/JavaScript/浏览器的 JavaScript 事件循环机制.html" class="sidebar-link">👉 浏览器的 JavaScript 事件循环机制</a></li><li><a href="/articles/JavaScript/深浅拷贝的实现.html" class="sidebar-link">👉 深浅拷贝的实现</a></li><li><a href="/articles/JavaScript/理解 JavaScript 的 async 和 await.html" class="sidebar-link">👉 理解 JavaScript 的 async/await</a></li><li><a href="/articles/JavaScript/继承.html" class="sidebar-link">👉 继承</a></li><li><a href="/articles/JavaScript/防抖和节流.html" class="sidebar-link">👉 防抖和节流</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Microapp</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Network</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Project Management</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="call、apply、bind-的实现"><a href="#call、apply、bind-的实现" class="header-anchor">#</a> 👉 call、apply、bind 的实现</h1> <h2 id="三者的联系与区别"><a href="#三者的联系与区别" class="header-anchor">#</a> 三者的联系与区别</h2> <ul><li><p>三者都会改变函数执行的上下文，即改变函数运行时的 this 指向。</p> <p>三者的第一个参数都是<strong>改变上下文所指向的对象</strong>。当传 null/undefined 会自动指向全局对象 window，传原始值（数字，字符等）会指向它们的自动包装对象。</p></li> <li><p><code>call(Fun, arg1, arg2..)</code>和 <code>apply(Fun, [..args])</code>的区别在于：<br>
+call 方法接受的是若干个参数的列表，而 apply 方法接受的是一个包含多个参数的数组。</p></li> <li><p><code>bind(Fun, param1, param2, ...)</code>方法与 call/apply 最大的不同是：<br>
+前者返回的是一个绑定上下文的函数，需要手动调用，而后两者是直接执行了函数。</p></li></ul> <h2 id="call-apply-的模拟实现"><a href="#call-apply-的模拟实现" class="header-anchor">#</a> call/apply 的模拟实现</h2> <p>call、apply 和 bind 是挂在 Function 对象上的三个方法，只有函数才有这些方法。</p> <p>call/apply 需要做的事情：改变调用函数的 this 指向，执行函数，让指定的对象接受并拥有参数。分步骤来：</p> <ol><li>判断指定对象是否为<code>null/undefined</code>，是指向<code>window</code>；</li> <li>获取若干个参数列表（类数组）；</li> <li>将调用函数作为指定对象属性 fn 的值，通过此方法改变调用函数重的 this 值；执行 fn 为指定对象增加属性方法，并删除该属性。<br>
+(利用原理：函数作为一个对象的属性，被这个对象自身调用时，this 指向当前对象。)</li></ol> <p>这里也主要参考了大神<a href="https://github.com/mqyqingfeng/Blog/issues/11" target="_blank" rel="noopener noreferrer">冴羽<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>的文章：</p> <ul><li>call 的模拟实现</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">_call</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> <span class="token operator">...</span>arguments</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ctx为null/undefined时，this将指向全局对象window</span>
+    ctx <span class="token operator">=</span> ctx <span class="token operator">||</span> window<span class="token punctuation">;</span>
+
+    ctx<span class="token punctuation">.</span>fn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> result <span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 若入参只有一个ctx, 则需分离开 指定this对象 和 参数列表</span>
+    <span class="token comment">// 获取传入的额外参数 var args = [arguments[1], arguments[2], ...]</span>
+    <span class="token comment">// var args = [];</span>
+    <span class="token comment">// for (var i = 1; i &lt; ctx.length; i++) {</span>
+    <span class="token comment">//     args.push(&quot;arguments[&quot; + i + &quot;]&quot;);</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// var result = eval(&quot;ctx.fn(&quot; + args + &quot;)&quot;);</span>
+
+    <span class="token keyword">delete</span> ctx<span class="token punctuation">.</span>fn<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> value<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token string">&quot;window&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">&quot;obj&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;test1: &quot;</span><span class="token punctuation">,</span> bar<span class="token punctuation">.</span><span class="token function">_call</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//test1: {value: &quot;window&quot;, name: undefined, age, undefined}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;test2: &quot;</span><span class="token punctuation">,</span> bar<span class="token punctuation">.</span><span class="token function">_call</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">&quot;obj&quot;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//test2: {value: &quot;obj&quot;, name: &quot;obj&quot;, age: 1}</span>
+</code></pre></div><ul><li>apply 的模拟实现</li></ul> <p>apply 和 call 的模拟实现方式差不多，稍有区别的地方是传参的方式为一个包含了多个参数数组。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">_apply</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> argArr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ctx <span class="token operator">=</span> ctx <span class="token operator">||</span> window<span class="token punctuation">;</span>
+
+    ctx<span class="token punctuation">.</span>fn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">let</span> result<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>argArr <span class="token operator">||</span> <span class="token operator">!</span>argArr<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>argArr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">delete</span> ctx<span class="token punctuation">.</span>fn<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> value<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token string">&quot;window&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">&quot;obj&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;test1: &quot;</span><span class="token punctuation">,</span> bar<span class="token punctuation">.</span><span class="token function">_apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//test1: {value: &quot;window&quot;, name: undefined, age, undefined}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;test2: &quot;</span><span class="token punctuation">,</span> bar<span class="token punctuation">.</span><span class="token function">_apply</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&quot;obj&quot;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//test2: {value: &quot;obj&quot;, name: &quot;obj&quot;, age: 1}</span>
+</code></pre></div><h2 id="bind-的模拟实现"><a href="#bind-的模拟实现" class="header-anchor">#</a> bind 的模拟实现</h2> <p>bind 的模拟实现会较前两者复杂，bind 的特点：</p> <ol><li>支持若干个参数，也支持分开传参数；</li> <li>会返回一个新的函数（形成闭包）。</li></ol> <p>先来看看原生 bind 的用法：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 直接调用</span>
+<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+        <span class="token literal-property property">name</span><span class="token operator">:</span> name<span class="token punctuation">,</span>
+        <span class="token literal-property property">age</span><span class="token operator">:</span> age<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> value <span class="token operator">=</span> <span class="token string">&quot;window&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">&quot;foo&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> barFoo <span class="token operator">=</span> <span class="token function">bar</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>foo<span class="token punctuation">,</span> <span class="token string">&quot;jack&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">barFoo</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// { value: &quot;foo&quot;, name: &quot;jack&quot;, age: 30 }</span>
+</code></pre></div><p>对于以上的特点，来个 bind 的简易版实现：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">_bind</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> <span class="token operator">...</span>bindArgs</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ctx <span class="token operator">=</span> ctx <span class="token operator">||</span> window<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> fn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> bindArgs<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>以为这就结束了？还没还没......</p> <p>需特别注意的是：<br>
+对于 bind 返回的函数有两种调用方式，<strong>直接调用</strong>和<strong>通过 new 的方式</strong>。</p> <p>来自于 MDN 关于 bind 的原话</p> <blockquote><p>绑定函数自动适应于使用 new 操作符去构造一个由目标函数创建的新实例。当一个绑定函数是用来构建一个值的，原来提供的 this 就会被忽略。不过提供的参数列表仍然会插入到构造函数调用时的参数列表之前。</p></blockquote> <p>原话直白翻译就是我们可以把 bind 返回的函数当做构造函数去用 new 操作符创建实例，但这个时候 bind 传入的 this 指向会失效（因为按照 new 原理来说 this 会被指向新的实例对象），但是传入的参数还是有效的。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// new方式</span>
+<span class="token keyword">function</span> <span class="token function">Student</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> age</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>habit <span class="token operator">=</span> <span class="token string">&quot;running&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">grade</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>grade<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Student</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>job <span class="token operator">=</span> <span class="token string">&quot;study&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> grade <span class="token operator">=</span> <span class="token string">&quot;window&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> grade1 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">grade</span><span class="token operator">:</span> <span class="token string">&quot;grade1&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> grade1Student <span class="token operator">=</span> <span class="token function">Student</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>grade1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> student1 <span class="token operator">=</span> <span class="token function">grade1Student</span><span class="token punctuation">(</span><span class="token string">&quot;jack&quot;</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {grade: &quot;grade1&quot;, name: &quot;jack&quot;, age: 11}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>student1<span class="token punctuation">.</span>job<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Cannot read property 'job' of undefined</span>
+
+<span class="token keyword">var</span> newStudent <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">grade1Student</span><span class="token punctuation">(</span><span class="token string">&quot;chichi&quot;</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// {grade: undefined, name: &quot;chichi&quot;, age: 10}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newStudent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Student {habit: &quot;running&quot;, name: &quot;chichi&quot;, age: 10}</span>
+
+<span class="token comment">// 对bind返回的函数，直接调用：student1可以获取到 grade 值。</span>
+<span class="token comment">// 对bind返回的函数，new式调用：返回了 undefind。说明绑定的this会因为new时重新被指向新实例而失效。</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+    newStudent<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+    newStudent<span class="token punctuation">.</span>habit<span class="token punctuation">,</span>
+    newStudent<span class="token punctuation">.</span>job<span class="token punctuation">,</span>
+    newStudent<span class="token punctuation">.</span>grade
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//chichi running study undefined</span>
+</code></pre></div> <p>接着，继续完善，bind 的第二版模拟实现：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">_bind</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> <span class="token operator">...</span>bindArgs</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 获取指定的上下文对象，即新的this指向</span>
+    ctx <span class="token operator">=</span> ctx <span class="token operator">||</span> window<span class="token punctuation">;</span>
+
+    <span class="token comment">// 获取调用函数上下文内容</span>
+    <span class="token keyword">const</span> fn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 重新绑定指定上下文对象的函数</span>
+    <span class="token keyword">const</span> <span class="token function-variable function">fBind</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 1. 当_bind返回的函数，通过new调用时（fBind作为构造器），this 会被指向实例对象</span>
+        <span class="token comment">// 存在关系：实例 instanceof fBind，此时实例对象还能获取到绑定至self的值和原型链上的值</span>
+
+        <span class="token comment">// 2. 当_bind返回的函数，被直接调用时，this指向ctx/window</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">fBind</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> bindArgs<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> bindArgs<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 重新绑定指定上下文对象的函数，需继承调用函数的原型链</span>
+    fBind<span class="token punctuation">.</span>prototype <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>fn<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 不能直接 fBind.prototype = this.prototype，否则当修改fBind.prototype属性值时，也会影响fn.prototype属性</span>
+
+    <span class="token keyword">return</span> fBind<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="三者的应用场景"><a href="#三者的应用场景" class="header-anchor">#</a> 三者的应用场景</h2> <ul><li>数组最大/小值 Math.max.apply(Math, array)</li> <li>数组合并 [].push.apply(arr1, arr2)</li> <li>将类数组转成数组 Array.prototype.slice.call(arguments)</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/articles/JavaScript/V8工作原理.html" class="prev">
+        👉 V8 工作原理
+      </a></span> <span class="next"><a href="/articles/JavaScript/事件流和事件处理程序.html">
+        👉 事件流和事件处理程序
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.acbad0d7.js" defer></script><script src="/assets/js/2.fefa3fa1.js" defer></script><script src="/assets/js/1.67a15f5a.js" defer></script><script src="/assets/js/44.631fa43e.js" defer></script>
+  </body>
+</html>

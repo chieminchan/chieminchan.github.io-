@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>👉 事件流和事件处理程序 | CHIEMINCHAN&#39;S BLOG</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/images/donut.png">
+    <meta name="description" content="Hi, glad you came.">
+    
+    <link rel="preload" href="/assets/css/0.styles.8f3dca9f.css" as="style"><link rel="preload" href="/assets/js/app.acbad0d7.js" as="script"><link rel="preload" href="/assets/js/2.fefa3fa1.js" as="script"><link rel="preload" href="/assets/js/1.67a15f5a.js" as="script"><link rel="preload" href="/assets/js/45.619dc552.js" as="script"><link rel="prefetch" href="/assets/js/10.5229b01a.js"><link rel="prefetch" href="/assets/js/11.9dccb5a1.js"><link rel="prefetch" href="/assets/js/12.1aa023e7.js"><link rel="prefetch" href="/assets/js/13.da540175.js"><link rel="prefetch" href="/assets/js/14.981e669d.js"><link rel="prefetch" href="/assets/js/15.f28dd0b3.js"><link rel="prefetch" href="/assets/js/16.47e1d84d.js"><link rel="prefetch" href="/assets/js/17.7ff34030.js"><link rel="prefetch" href="/assets/js/18.6dcbdd16.js"><link rel="prefetch" href="/assets/js/19.e568fd00.js"><link rel="prefetch" href="/assets/js/20.182f1f9b.js"><link rel="prefetch" href="/assets/js/21.b834a74a.js"><link rel="prefetch" href="/assets/js/22.a3523cd2.js"><link rel="prefetch" href="/assets/js/23.61d15c5b.js"><link rel="prefetch" href="/assets/js/24.1d348186.js"><link rel="prefetch" href="/assets/js/25.9fe12dcf.js"><link rel="prefetch" href="/assets/js/26.e90c8d2c.js"><link rel="prefetch" href="/assets/js/27.4a3dcbb4.js"><link rel="prefetch" href="/assets/js/28.02977665.js"><link rel="prefetch" href="/assets/js/29.cdb9f0c9.js"><link rel="prefetch" href="/assets/js/3.fc739620.js"><link rel="prefetch" href="/assets/js/30.185415f9.js"><link rel="prefetch" href="/assets/js/31.ec02d3da.js"><link rel="prefetch" href="/assets/js/32.bd05dede.js"><link rel="prefetch" href="/assets/js/33.4f7ad3d8.js"><link rel="prefetch" href="/assets/js/34.4464026b.js"><link rel="prefetch" href="/assets/js/35.595841d0.js"><link rel="prefetch" href="/assets/js/36.402b37c9.js"><link rel="prefetch" href="/assets/js/37.9bf58c3a.js"><link rel="prefetch" href="/assets/js/38.46566c2b.js"><link rel="prefetch" href="/assets/js/39.b8885e71.js"><link rel="prefetch" href="/assets/js/4.0471e9ae.js"><link rel="prefetch" href="/assets/js/40.1c6fe0d3.js"><link rel="prefetch" href="/assets/js/41.0116a1ec.js"><link rel="prefetch" href="/assets/js/42.61dc1f92.js"><link rel="prefetch" href="/assets/js/43.1d0d8ffd.js"><link rel="prefetch" href="/assets/js/44.631fa43e.js"><link rel="prefetch" href="/assets/js/46.1a502943.js"><link rel="prefetch" href="/assets/js/47.90cce12d.js"><link rel="prefetch" href="/assets/js/48.ad0ce6a4.js"><link rel="prefetch" href="/assets/js/49.ade35f37.js"><link rel="prefetch" href="/assets/js/5.5356be46.js"><link rel="prefetch" href="/assets/js/50.de00c31b.js"><link rel="prefetch" href="/assets/js/51.8d115701.js"><link rel="prefetch" href="/assets/js/52.50f1abf2.js"><link rel="prefetch" href="/assets/js/53.474bacbc.js"><link rel="prefetch" href="/assets/js/54.71bfe1b2.js"><link rel="prefetch" href="/assets/js/55.5a7aac80.js"><link rel="prefetch" href="/assets/js/56.1bb058d3.js"><link rel="prefetch" href="/assets/js/57.ce60730e.js"><link rel="prefetch" href="/assets/js/58.50eb3dcb.js"><link rel="prefetch" href="/assets/js/59.cbbee0a1.js"><link rel="prefetch" href="/assets/js/6.5b3d5499.js"><link rel="prefetch" href="/assets/js/60.6d033419.js"><link rel="prefetch" href="/assets/js/61.38b92b35.js"><link rel="prefetch" href="/assets/js/62.cfb09d59.js"><link rel="prefetch" href="/assets/js/63.b3afd3f8.js"><link rel="prefetch" href="/assets/js/64.d7c42a6f.js"><link rel="prefetch" href="/assets/js/65.d75a10f7.js"><link rel="prefetch" href="/assets/js/66.43e62a50.js"><link rel="prefetch" href="/assets/js/67.2b5d235c.js"><link rel="prefetch" href="/assets/js/68.0a9b875e.js"><link rel="prefetch" href="/assets/js/69.8890b554.js"><link rel="prefetch" href="/assets/js/7.c94df317.js"><link rel="prefetch" href="/assets/js/70.37811412.js"><link rel="prefetch" href="/assets/js/71.31650a8a.js"><link rel="prefetch" href="/assets/js/72.5258a010.js"><link rel="prefetch" href="/assets/js/73.b82c5b55.js"><link rel="prefetch" href="/assets/js/74.98193333.js"><link rel="prefetch" href="/assets/js/75.03ecfdd5.js"><link rel="prefetch" href="/assets/js/76.cf3fe483.js"><link rel="prefetch" href="/assets/js/77.20e1f993.js"><link rel="prefetch" href="/assets/js/78.81fd1ead.js"><link rel="prefetch" href="/assets/js/79.01e24fba.js"><link rel="prefetch" href="/assets/js/80.b15cc1f3.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.934ed2fb.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8f3dca9f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">CHIEMINCHAN'S BLOG</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/articles/" class="nav-link router-link-active">
+  文章
+</a></div><div class="nav-item"><a href="/fragments/" class="nav-link">
+  知识碎片
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/reading/" class="nav-link">
+  读/观后感
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="GitHub" class="dropdown-title"><span class="title">GitHub</span> <span class="arrow down"></span></button> <button type="button" aria-label="GitHub" class="mobile-dropdown-title"><span class="title">GitHub</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/chieminchan" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/articles/" class="nav-link router-link-active">
+  文章
+</a></div><div class="nav-item"><a href="/fragments/" class="nav-link">
+  知识碎片
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/reading/" class="nav-link">
+  读/观后感
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="GitHub" class="dropdown-title"><span class="title">GitHub</span> <span class="arrow down"></span></button> <button type="button" aria-label="GitHub" class="mobile-dropdown-title"><span class="title">GitHub</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/chieminchan" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub首页
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Browser</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>DesignPatterns</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JavaScript</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/articles/JavaScript/JavaScript执行上下文.html" class="sidebar-link">👉 JavaScript 执行上下文</a></li><li><a href="/articles/JavaScript/PromiseA+实现原理.html" class="sidebar-link">👉 Promise/A+ 实现原理</a></li><li><a href="/articles/JavaScript/V8工作原理.html" class="sidebar-link">👉 V8 工作原理</a></li><li><a href="/articles/JavaScript/call、apply、bind的实现.html" class="sidebar-link">👉 call、apply、bind 的实现</a></li><li><a href="/articles/JavaScript/事件流和事件处理程序.html" class="active sidebar-link">👉 事件流和事件处理程序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/articles/JavaScript/事件流和事件处理程序.html#事件流和事件流机制" class="sidebar-link">事件流和事件流机制</a></li><li class="sidebar-sub-header"><a href="/articles/JavaScript/事件流和事件处理程序.html#事件对象" class="sidebar-link">事件对象</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/articles/JavaScript/事件流和事件处理程序.html#事件对象的常用方法" class="sidebar-link">事件对象的常用方法</a></li></ul></li><li class="sidebar-sub-header"><a href="/articles/JavaScript/事件流和事件处理程序.html#事件处理程序" class="sidebar-link">事件处理程序</a></li><li class="sidebar-sub-header"><a href="/articles/JavaScript/事件流和事件处理程序.html#通用的跨浏览器事件处理程序" class="sidebar-link">通用的跨浏览器事件处理程序</a></li><li class="sidebar-sub-header"><a href="/articles/JavaScript/事件流和事件处理程序.html#事件代理-事件委托" class="sidebar-link">事件代理/事件委托</a></li></ul></li><li><a href="/articles/JavaScript/关于Promise的一些事.html" class="sidebar-link">👉 关于 Promise 的一些事</a></li><li><a href="/articles/JavaScript/浏览器的 JavaScript 事件循环机制.html" class="sidebar-link">👉 浏览器的 JavaScript 事件循环机制</a></li><li><a href="/articles/JavaScript/深浅拷贝的实现.html" class="sidebar-link">👉 深浅拷贝的实现</a></li><li><a href="/articles/JavaScript/理解 JavaScript 的 async 和 await.html" class="sidebar-link">👉 理解 JavaScript 的 async/await</a></li><li><a href="/articles/JavaScript/继承.html" class="sidebar-link">👉 继承</a></li><li><a href="/articles/JavaScript/防抖和节流.html" class="sidebar-link">👉 防抖和节流</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Microapp</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Network</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Project Management</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="事件流和事件处理程序"><a href="#事件流和事件处理程序" class="header-anchor">#</a> 👉 事件流和事件处理程序</h1> <h2 id="事件流和事件流机制"><a href="#事件流和事件流机制" class="header-anchor">#</a> 事件流和事件流机制</h2> <p>事件就是用户或者浏览器自身执行的动作，比如 click、mouseover。</p> <p>事件流则是用来描述网页元素接受事件的传递顺序，事件流机制主要有两种：<strong>事件捕获（从上向下）</strong>、<strong>事件冒泡（从下向上）</strong>。</p> <p>IE 事件流为事件冒泡， Netscape Communicator 的事件流是事件捕获流。</p> <p>DOM2 级事件规定的事件流则包括三个阶段: <code>事件捕获 -&gt; 目标 -&gt; 事件冒泡</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// PhaseType</span>
+<span class="token keyword">const</span> unsigned short      <span class="token constant">CAPTURING_PHASE</span>                <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> unsigned short      <span class="token constant">AT_TARGET</span>                      <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> unsigned short      <span class="token constant">BUBBLING_PHASE</span>                 <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+</code></pre></div><p>① 事件捕获阶段<br>
+首先发生的是事件捕获，在这个阶段中，事件开始从 <code>window</code> 对象开始往下逐级传播， 直到 <code>TARGET</code>（所点击的目标）。</p> <p>② 处于目标阶段<br>
+第二个阶段是实际的目标接收到事件，事件到达目标节点的，事件流就进入到了目标阶段。<br> <strong>当处在这个阶段时，没有捕获与冒泡之分，事件调用顺序会按照 addEventListener 的添加顺序决定，先添加先执行。</strong> 当事件处于目标阶段时，事件调用顺序决定于 addEventListener 绑定事件的书写顺序。</p> <p>③ 事件冒泡阶段<br>
+最后一个阶段是冒泡阶段，事件会从目标逆向回流，往上逐级传递回最外层节点。</p> <p>但并非所有的事件都会经过冒泡阶段的，<strong>所有的事件都要经过捕捉阶段和目标阶段，但有些事件会跳过冒泡阶段</strong>。例如，让元素获得输入焦点的 focus 事件以及失去输入焦点的 blur 事件就都不会冒泡。</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>lists<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>list-item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>click me!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">get</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> lists <span class="token operator">=</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;lists&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> listItem <span class="token operator">=</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;list-item&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// list 的捕获</span>
+lists<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;lists capturing&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>eventPhase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">true</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// list 的冒泡</span>
+lists<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;lists bubbling&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>eventPhase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">false</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// listItem 的冒泡</span>
+listItem<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;listItem bubbling&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>eventPhase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">false</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// listItem 的捕获</span>
+listItem<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;listItem capturing&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>eventPhase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">true</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// lists capturing 1</span>
+<span class="token comment">// listItem  bubbling 2（目标阶段按addEventListener顺序）</span>
+<span class="token comment">// listItem capturing 2</span>
+<span class="token comment">// lists bubbling 3</span>
+</code></pre></div><h2 id="事件对象"><a href="#事件对象" class="header-anchor">#</a> 事件对象</h2> <p>DOM2、DOM0 事件处理中，会将一个 event 对象传进事件处理程序中。在事件处理程序中，<strong>this 始终指向 currentTarget（事件绑定的元素） ，target 则始终指向位于其事件流的目标阶段,即事件的实际目标（触发事件的元素）</strong>。如果直接将事件处理程序指定给了目标元素，则 this、currentTarget 和 target 包含相同的值。</p> <p>IE 事件处理中，事件对象 event 会作为 window 对象的一个属性，通过 window.event 来获取，也可以在 attachEvent 时传进。而事件目标一般用 <code>window.event.srcElement</code> 来获取真正的目标 target。</p> <p>只有在事件处理程序期间，event 对象才会存在，一旦事件处理程序执行完成，event 对象就会被销毁。</p> <h3 id="事件对象的常用方法"><a href="#事件对象的常用方法" class="header-anchor">#</a> 事件对象的常用方法</h3> <ul><li>取消预设行为 <code>event.preventDefalut</code></li></ul> <p>比如点击 a 标签会链接至其 href 属性对应的 url，要取消这个预设行为可以用到 <code>event.preventDefalut</code>：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>link<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>www.baidu.com<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span> click me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> $link <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;link&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+$link<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">false</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ul><li>取消事件传递 <code>event.stopPropagation</code></li></ul> <p>在对应 DOM 节点的 handler 上使用该方法，会使事件停止传递给接下来的节点们。</p> <p><code>event.stopPropagation</code>不会阻止当前节点上此事件<strong>其他的监听函数</strong>被调用。如果要让当前节点上的其他回调函数也不能被调用的话，可以使用 <code>event.stopImmediatePropagation()</code> 方法</p> <p>在上面的完整栗子的基础上，在目标阶段加入<code>event.stopPropagation</code>的栗子：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>lists<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>list-item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>click me!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">get</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> lists <span class="token operator">=</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;lists&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> listItem <span class="token operator">=</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token string">&quot;list-item&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// lists 的捕获</span>
+lists<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;lists capturing&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>eventPhase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">true</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// lists 的冒泡</span>
+lists<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;lists bubbling&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>eventPhase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">false</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// listItem 的捕获</span>
+listItem<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;listItem capturing&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;listItem listner1&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>eventPhase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        e<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">true</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+listItem<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;listItem capturing&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;listItem listner2&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>eventPhase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">true</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// listItem 的冒泡</span>
+listItem<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;listItem bubbling&quot;</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span>eventPhase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">false</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// lists capturing 1</span>
+<span class="token comment">// listItem capturing listItemL listner1 2</span>
+<span class="token comment">// listItem capturing listItem listner2 2</span>
+<span class="token comment">// listItem bubbling 2</span>
+</code></pre></div><h4 id="兼容-ie"><a href="#兼容-ie" class="header-anchor">#</a> 兼容 IE</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 阻止预设</span>
+event<span class="token punctuation">.</span><span class="token function">preventDefalut</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token operator">=&gt;</span>   event<span class="token punctuation">.</span>returnValue <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 取消传递</span>
+event<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">=&gt;</span>   event<span class="token punctuation">.</span>cancelBubble <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+
+<span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> <span class="token boolean">false</span></span><span class="token punctuation">)</span>     <span class="token operator">=&gt;</span>   <span class="token function">attachEvent</span><span class="token punctuation">(</span><span class="token string">'on'</span><span class="token operator">+</span>event<span class="token punctuation">,</span>  handler<span class="token punctuation">)</span>
+
+<span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token parameter">event<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> <span class="token boolean">false</span></span><span class="token punctuation">)</span>  <span class="token operator">=&gt;</span>   <span class="token function">detachEvent</span><span class="token punctuation">(</span><span class="token string">'on'</span><span class="token operator">+</span>event<span class="token punctuation">,</span>  handler<span class="token punctuation">)</span>
+
+
+<span class="token comment">// 获取真正的目标：event.target  =&gt;  event.srcElement</span>
+
+</code></pre></div><p>IE 不支持事件捕获，所以只能取消事件冒泡，但 stopPropagation 可以同时取消事件捕获和冒泡。</p> <h2 id="事件处理程序"><a href="#事件处理程序" class="header-anchor">#</a> 事件处理程序</h2> <p>一共有三种事件处理程序：DOM0、DOM2、IE，他们的主要区别：</p> <ul><li><p><strong>作用域</strong></p> <p>DOM0、DOM2 的 handler 会在所属元素的作用域内运行，即 this 指向当前引用的元素；IE 的 handler 会在全局作用域运行，this === window。</p></li> <li><p><strong>添加事件处理程序数量</strong></p> <p>DOM2、IE 可以添加多个事件处理程序，DOM0 只支持一个。<br>
+DOM2 直接添加的匿名函数 handler 无法移除，addEventListener 和 removeEventListener 的 handler 必须同名</p></li> <li><p><strong>触发顺序</strong></p> <p>当添加加多个事件处理程序时，DOM2 会按照代码编写添加顺序执行，IE 会以相反的顺序执行。</p></li></ul> <h2 id="通用的跨浏览器事件处理程序"><a href="#通用的跨浏览器事件处理程序" class="header-anchor">#</a> 通用的跨浏览器事件处理程序</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> EventUitl <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 获取event对象</span>
+    <span class="token function-variable function">getEvent</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> event <span class="token operator">?</span> event <span class="token operator">:</span> window<span class="token punctuation">.</span>event<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 获取目标</span>
+    <span class="token function-variable function">getTarget</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> event<span class="token punctuation">.</span>target <span class="token operator">?</span> event<span class="token punctuation">.</span>target <span class="token operator">:</span> event<span class="token punctuation">.</span>srcElement<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 取消默认行为</span>
+    <span class="token function-variable function">preventDefault</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>preventDefault<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            event<span class="token punctuation">.</span>returnValue <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 取消事件传播</span>
+    <span class="token function-variable function">stopPropagation</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>stopPropagation<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            event<span class="token punctuation">.</span><span class="token function">stopPropagation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            event<span class="token punctuation">.</span>cancelBubble <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// element 是当前元素，可通过getElementById(id)获取</span>
+    <span class="token comment">// type 是事件类型，一般是click ,也有可能是鼠标、焦点、滚轮事件等等</span>
+    <span class="token comment">// handler 指定事件处理函数的时期或阶段(boolean)</span>
+
+    <span class="token comment">// 事件监听</span>
+    <span class="token function-variable function">addEvent</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">,</span> type<span class="token punctuation">,</span> handler</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span>addEventListener<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 第三个参数，默认为false冒泡阶段</span>
+            element<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> handler<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span>attachEvent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">const</span> <span class="token function-variable function">wrapper</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> event <span class="token operator">=</span> event <span class="token operator">?</span> event <span class="token operator">:</span> window<span class="token punctuation">.</span>event<span class="token punctuation">;</span>
+                <span class="token keyword">const</span> target <span class="token operator">=</span> event<span class="token punctuation">.</span>target <span class="token operator">?</span> event<span class="token punctuation">.</span>target <span class="token operator">:</span> event<span class="token punctuation">.</span>srcElement<span class="token punctuation">;</span>
+                <span class="token function">handler</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>element<span class="token punctuation">,</span> event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            element<span class="token punctuation">.</span><span class="token function">attachEvent</span><span class="token punctuation">(</span><span class="token string">&quot;on&quot;</span> <span class="token operator">+</span> type<span class="token punctuation">,</span> wrapper<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> wrapper<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            element<span class="token punctuation">[</span>on <span class="token operator">+</span> <span class="token string">&quot;click&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> handler<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// 取消事件监听</span>
+    <span class="token function-variable function">removeEvent</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">element<span class="token punctuation">,</span> type<span class="token punctuation">,</span> handler</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span>removeEventListener<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            element<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span>type<span class="token punctuation">,</span> handler<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span>detachEvent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            element<span class="token punctuation">.</span><span class="token function">detachEvent</span><span class="token punctuation">(</span><span class="token string">&quot;on&quot;</span> <span class="token operator">+</span> type<span class="token punctuation">,</span> handler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            element<span class="token punctuation">[</span>on <span class="token operator">+</span> <span class="token string">&quot;click&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="事件代理-事件委托"><a href="#事件代理-事件委托" class="header-anchor">#</a> 事件代理/事件委托</h2> <p>事件委托利用了事件冒泡的原理，通过只指定一个事件处理程序，就可以达到管理某一类型的所有事件。</p> <p>因为冒泡机制，在点击子元素时，也会触发父元素的点击事件。那么我们就可以把点击子元素的事件要做的事情，交给最外层的父元素来做，让事件冒泡到最外层的 dom 节点上触发事件处理程序。</p> <p>例如，click 事件会一直冒泡到 document 层次，也就是说，当需要为一个有 100 个 list 的列表分别添加 click 的事件处理程序的时候，可以通过为这 100 个 list 的父节点 ul 绑定事件处理程序进而达到目的，而不必为每个 list 元素分别添加事件处理程序。</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>myLinks<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>goSomewhere<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Go somewhere<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>doSomething<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Do something<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>sayHi<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Say hi<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> list <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;myLinks&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+EventUitl<span class="token punctuation">.</span><span class="token function">addEvent</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> <span class="token string">&quot;click&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    event <span class="token operator">=</span> EventUitl<span class="token punctuation">.</span><span class="token function">getEvent</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> target <span class="token operator">=</span> EventUitl<span class="token punctuation">.</span><span class="token function">getTarget</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>target<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token string">&quot;doSomething&quot;</span><span class="token operator">:</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;doSomething&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">&quot;goSomewhere&quot;</span><span class="token operator">:</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;goSomewhere&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> <span class="token string">&quot;sayHi&quot;</span><span class="token operator">:</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;hi&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>大多数情况下，事件委托都会将事件处理程序添加到事件流的冒泡阶段，这样可以最大限度地兼容各种浏览器。利用事件冒泡机制托管事件处理程序来提高程序性能。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/articles/JavaScript/call、apply、bind的实现.html" class="prev">
+        👉 call、apply、bind 的实现
+      </a></span> <span class="next"><a href="/articles/JavaScript/关于Promise的一些事.html">
+        👉 关于 Promise 的一些事
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.acbad0d7.js" defer></script><script src="/assets/js/2.fefa3fa1.js" defer></script><script src="/assets/js/1.67a15f5a.js" defer></script><script src="/assets/js/45.619dc552.js" defer></script>
+  </body>
+</html>
